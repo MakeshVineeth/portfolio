@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/details.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:makesh_vineeth/fixedValues.dart';
 
 class ScaffoldHome extends StatelessWidget {
   final infos = {
@@ -11,18 +12,15 @@ class ScaffoldHome extends StatelessWidget {
     'TYPE OF WORK': 'On-demand Freelancing',
   };
 
+  final FixedValues fixedValues = FixedValues();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Makesh Vineeth Portfolio',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.5,
-          ),
+          fixedValues.appTitle,
         ),
-        centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -39,8 +37,9 @@ class ScaffoldHome extends StatelessWidget {
             children: [
               Center(
                 child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
                   backgroundImage: AssetImage('assets/profile.jpg'),
-                  radius: 70.0,
+                  radius: 80.0,
                 ),
               ),
               Divider(

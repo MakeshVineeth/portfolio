@@ -5,7 +5,9 @@ class Detail extends StatelessWidget {
   final title;
   final desc;
 
-  const Detail({@required this.title, @required this.desc});
+  Detail({@required this.title, @required this.desc});
+
+  final FixedValues fixedValues = FixedValues();
 
   @override
   Widget build(BuildContext context) {
@@ -15,27 +17,31 @@ class Detail extends StatelessWidget {
       ),
       margin: EdgeInsets.all(5.0),
       elevation: 5.0,
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Center(
-              child: Text(
-                title,
-                style: FixedValues.headingStyle,
+      child: InkWell(
+        onTap: () {},
+        borderRadius: BorderRadius.circular(30),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: Text(
+                  title,
+                  style: fixedValues.headingStyle(context),
+                ),
               ),
-            ),
-            SizedBox(
-              height: 5.0,
-            ),
-            Center(
-              child: Text(
-                desc,
-                style: FixedValues.textStyle,
+              SizedBox(
+                height: 5.0,
               ),
-            ),
-          ],
+              Center(
+                child: Text(
+                  desc,
+                  style: fixedValues.textStyle,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

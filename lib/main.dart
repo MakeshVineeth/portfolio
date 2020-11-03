@@ -20,11 +20,11 @@ class _VineethIdState extends State<VineethId> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-      light: ThemeData.light(),
+      light: fixedValues.getThemeData(Brightness.light),
       dark: fixedValues.getDarkTheme(),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
-        title: 'Makesh Vineeth Portfolio',
+        title: fixedValues.appTitle,
         home: ScaffoldHome(),
         theme: theme,
         darkTheme: darkTheme,
