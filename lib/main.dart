@@ -24,6 +24,7 @@ class _VineethIdState extends State<VineethId> {
       dark: fixedValues.getDarkTheme(),
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
+        title: 'Makesh Vineeth Portfolio',
         home: ScaffoldHome(),
         theme: theme,
         darkTheme: darkTheme,
