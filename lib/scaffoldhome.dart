@@ -3,7 +3,7 @@ import 'package:makesh_vineeth/details.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
-import 'package:octo_image/octo_image.dart';
+import 'package:makesh_vineeth/circleImage.dart';
 
 class ScaffoldHome extends StatelessWidget {
   final infos = {
@@ -61,21 +61,7 @@ class ScaffoldHome extends StatelessWidget {
             padding: const EdgeInsets.all(30.0),
             child: Column(
               children: [
-                Center(
-                  child: FadeIn(
-                    duration: Duration(milliseconds: 2000),
-                    child: OctoImage.fromSet(
-                      image: AssetImage('assets/profile.jpg'),
-                      width: MediaQuery.of(context).size.width / 3,
-                      height: MediaQuery.of(context).size.height / 3,
-                      fit: BoxFit.cover,
-                      octoSet: OctoSet.circleAvatar(
-                        backgroundColor: Colors.transparent,
-                        text: Text(''),
-                      ),
-                    ),
-                  ),
-                ),
+                CircleImage(),
                 customDivider(),
                 getColumn(infos),
                 customDivider(),
@@ -99,7 +85,7 @@ class ScaffoldHome extends StatelessWidget {
 
   Widget customDivider() {
     return Divider(
-      height: 50.0,
+      height: 40.0,
       color: Colors.grey[600],
       thickness: 1.0,
     );
