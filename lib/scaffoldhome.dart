@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/details.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 class ScaffoldHome extends StatelessWidget {
   final infos = {
@@ -36,39 +37,45 @@ class ScaffoldHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          fixedValues.appTitle,
-        ),
-      ),
-      floatingActionButton: InkWell(
-        hoverColor: Colors.transparent,
-        onLongPress: () => changeThemeLongPress(context),
-        child: FloatingActionButton(
-          onPressed: () => changeThemeTap(context),
-          child: Icon(
-            Icons.lightbulb_outline_rounded,
+    return FadeIn(
+      duration: Duration(milliseconds: 500),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            fixedValues.appTitle,
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            children: [
-              Center(
-                child: CircleAvatar(
-                  backgroundColor: Colors.transparent,
-                  backgroundImage: AssetImage('assets/profile.jpg'),
-                  radius: 80.0,
+        floatingActionButton: InkWell(
+          hoverColor: Colors.transparent,
+          onLongPress: () => changeThemeLongPress(context),
+          child: FloatingActionButton(
+            onPressed: () => changeThemeTap(context),
+            child: Icon(
+              Icons.lightbulb_outline_rounded,
+            ),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              children: [
+                Center(
+                  child: FadeIn(
+                    duration: Duration(milliseconds: 2000),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      backgroundImage: AssetImage('assets/profile.jpg'),
+                      radius: 80.0,
+                    ),
+                  ),
                 ),
-              ),
-              customDivider(),
-              getColumn(infos),
-              customDivider(),
-              getColumn(eduInfos),
-            ],
+                customDivider(),
+                getColumn(infos),
+                customDivider(),
+                getColumn(eduInfos),
+              ],
+            ),
           ),
         ),
       ),
