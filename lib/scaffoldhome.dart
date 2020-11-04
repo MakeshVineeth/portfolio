@@ -3,6 +3,7 @@ import 'package:makesh_vineeth/details.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
+import 'package:octo_image/octo_image.dart';
 
 class ScaffoldHome extends StatelessWidget {
   final infos = {
@@ -24,7 +25,7 @@ class ScaffoldHome extends StatelessWidget {
       'Koneru Lakshmaiah Education Foundation',
       Icons.school_rounded
     ],
-    'LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
+    'UNIVERSITY LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
     'SPECIALIZATION': [
       'Cloud Technology & Information Security',
       Icons.school_rounded
@@ -38,7 +39,7 @@ class ScaffoldHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeIn(
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: 1000),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -63,10 +64,15 @@ class ScaffoldHome extends StatelessWidget {
                 Center(
                   child: FadeIn(
                     duration: Duration(milliseconds: 2000),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: AssetImage('assets/profile.jpg'),
-                      radius: 80.0,
+                    child: OctoImage.fromSet(
+                      image: AssetImage('assets/profile.jpg'),
+                      width: MediaQuery.of(context).size.width / 3,
+                      height: MediaQuery.of(context).size.height / 3,
+                      fit: BoxFit.cover,
+                      octoSet: OctoSet.circleAvatar(
+                        backgroundColor: Colors.transparent,
+                        text: Text(''),
+                      ),
                     ),
                   ),
                 ),

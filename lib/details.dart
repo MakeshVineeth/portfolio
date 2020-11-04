@@ -17,7 +17,7 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     double winSize = MediaQuery.of(context).size.width;
     return FadeIn(
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 1500),
       child: Container(
         width: (winSize > 600) ? winSize / 2 : winSize,
         child: Card(
