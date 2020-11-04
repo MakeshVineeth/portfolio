@@ -54,7 +54,7 @@ class Detail extends StatelessWidget {
                     ),
                     TypewriterAnimatedTextKit(
                       text: [desc],
-                      textStyle: fixedValues.textStyle,
+                      textStyle: fixedValues.textStyle(context),
                       textAlign: TextAlign.center,
                       alignment: AlignmentDirectional.center,
                       displayFullTextOnTap: true,

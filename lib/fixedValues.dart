@@ -53,8 +53,13 @@ class FixedValues {
     );
   }
 
-  TextStyle textStyle = TextStyle(
-    fontSize: 15.0,
-    fontWeight: FontWeight.w600,
-  );
+  TextStyle textStyle(BuildContext context) {
+    return TextStyle(
+      fontSize: 15.0,
+      fontWeight: FontWeight.w600,
+      color: Theme.of(context).brightness == Brightness.light
+          ? Colors.black87
+          : Colors.white,
+    );
+  }
 }

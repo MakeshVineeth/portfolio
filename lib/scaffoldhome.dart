@@ -23,6 +23,7 @@ class ScaffoldHome extends StatelessWidget {
       'Koneru Lakshmaiah Education Foundation',
       Icons.school_rounded
     ],
+    'UNIVERSITY LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
     'SPECIALIZATION': [
       'Cloud Technology & Information Security',
       Icons.school_rounded
