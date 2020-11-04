@@ -6,10 +6,19 @@ import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:makesh_vineeth/circleImage.dart';
 
 class ScaffoldHome extends StatelessWidget {
+  static final mail = 'mailto:makeshvineeth9@gmail.com';
+  static final tnLoc = 'https://goo.gl/maps/ofDShJhYNYTLYwKt8';
+  static final kluAddress = 'https://goo.gl/maps/wEzAiUt8qdotkRKE7';
+  static final kluWeb = 'https://www.kluniversity.in';
+
   final infos = {
     'NAME': ['Makesh Vineeth', Icons.person],
-    'LOCATION': ['Telangana, India', Icons.location_city_rounded],
-    'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
+    'LOCATION': ['Telangana, India', Icons.location_city_rounded, tnLoc],
+    'EMAIL': [
+      'makeshvineeth9@gmail.com',
+      Icons.mail_rounded,
+      mail,
+    ],
     'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
     'TYPE OF WORK': ['Freelancing', Icons.work_rounded],
     'ROLE': ['Software Developer', Icons.domain_rounded],
@@ -23,9 +32,14 @@ class ScaffoldHome extends StatelessWidget {
     ],
     'UNIVERSITY': [
       'Koneru Lakshmaiah Education Foundation',
-      Icons.school_rounded
+      Icons.school_rounded,
+      kluWeb
     ],
-    'UNIVERSITY LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
+    'UNIVERSITY LOCATION': [
+      'Vijayawada, AP',
+      Icons.location_city_rounded,
+      kluAddress
+    ],
     'SPECIALIZATION': [
       'Cloud Technology & Information Security',
       Icons.school_rounded
@@ -99,6 +113,7 @@ class ScaffoldHome extends StatelessWidget {
                 title: entry.key,
                 desc: entry.value[0],
                 icon: entry.value.length == 2 ? entry.value[1] : null,
+                url: entry.value.length == 3 ? entry.value[2] : null,
               ))
           .toList(),
     );

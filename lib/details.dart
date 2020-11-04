@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Detail extends StatelessWidget {
   final title;
   final desc;
   final icon;
+  final url;
 
-  Detail({@required this.title, @required this.desc, this.icon});
+  Detail({@required this.title, @required this.desc, this.icon, this.url});
 
   final FixedValues fixedValues = FixedValues();
   final BorderRadius borderRadius = BorderRadius.circular(25);
+  static _launchURL(String url) async {
+    if (await canLaunch(url)) await launch(url);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,9 @@ class Detail extends StatelessWidget {
           margin: EdgeInsets.all(5.0),
           elevation: 5.0,
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              if (this.url != null) _launchURL(this.url);
+            },
             borderRadius: borderRadius,
             child: Padding(
               padding: const EdgeInsets.symmetric(
