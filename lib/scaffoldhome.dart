@@ -11,7 +11,7 @@ class ScaffoldHome extends StatelessWidget {
     'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
     'TYPE OF WORK': ['Freelancing', Icons.work_rounded],
     'ROLE': ['Software Developer', Icons.domain_rounded],
-    'CURRENT POSITION': ['Graduate, 2020', Icons.assignment_ind_rounded],
+    'CURRENT POSITION': ['Graduated, 2020', Icons.assignment_ind_rounded],
   };
 
   final eduInfos = {
@@ -23,7 +23,7 @@ class ScaffoldHome extends StatelessWidget {
       'Koneru Lakshmaiah Education Foundation',
       Icons.school_rounded
     ],
-    'UNIVERSITY LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
+    'LOCATION': ['Vijayawada, AP', Icons.location_city_rounded],
     'SPECIALIZATION': [
       'Cloud Technology & Information Security',
       Icons.school_rounded
