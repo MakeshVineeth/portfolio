@@ -27,10 +27,11 @@ class ScaffoldHome extends StatelessWidget {
       'Cloud Technology & Information Security',
       Icons.school_rounded
     ],
-    'Total CGPA': ['9.58', Icons.school_rounded],
+    'TOTAL CGPA': ['9.58', Icons.school_rounded],
   };
 
   final FixedValues fixedValues = FixedValues();
+  final snackBar = SnackBar(content: Text('Changed to System Default Theme!'));
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,14 @@ class ScaffoldHome extends StatelessWidget {
           fixedValues.appTitle,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          AdaptiveTheme.of(context).toggleThemeMode();
-        },
-        child: Icon(
-          Icons.lightbulb_outline_rounded,
+      floatingActionButton: InkWell(
+        hoverColor: Colors.transparent,
+        onLongPress: () => changeThemeLongPress(context),
+        child: FloatingActionButton(
+          onPressed: () => changeThemeTap(context),
+          child: Icon(
+            Icons.lightbulb_outline_rounded,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -69,6 +72,15 @@ class ScaffoldHome extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void changeThemeLongPress(BuildContext context) {
+    AdaptiveTheme.of(context).setSystem();
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void changeThemeTap(BuildContext context) {
+    AdaptiveTheme.of(context).toggleThemeMode();
   }
 
   Widget customDivider() {

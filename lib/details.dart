@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Detail extends StatelessWidget {
   final title;
@@ -51,9 +52,14 @@ class Detail extends StatelessWidget {
                     SizedBox(
                       width: 5.0,
                     ),
-                    Text(
-                      desc,
-                      style: fixedValues.textStyle,
+                    TypewriterAnimatedTextKit(
+                      text: [desc],
+                      textStyle: fixedValues.textStyle,
+                      textAlign: TextAlign.center,
+                      alignment: AlignmentDirectional.center,
+                      displayFullTextOnTap: true,
+                      isRepeatingAnimation: false,
+                      speed: Duration(milliseconds: 150),
                     ),
                   ],
                 ),

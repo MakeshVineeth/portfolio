@@ -47,7 +47,9 @@ class FixedValues {
     return TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.bold,
-      color: Theme.of(context).brightness == Brightness.light ? appBarFont : Colors.amberAccent,
+      color: Theme.of(context).brightness == Brightness.light
+          ? appBarFont
+          : Colors.amberAccent,
     );
   }
 

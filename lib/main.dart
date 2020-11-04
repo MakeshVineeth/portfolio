@@ -23,7 +23,7 @@ class _VineethIdState extends State<VineethId> {
     return AdaptiveTheme(
       light: fixedValues.getThemeData(Brightness.light),
       dark: fixedValues.getDarkTheme(),
-      initial: AdaptiveThemeMode.light,
+      initial: AdaptiveThemeMode.dark,
       builder: (theme, darkTheme) => MaterialApp(
         title: fixedValues.appTitle,
         theme: theme,
