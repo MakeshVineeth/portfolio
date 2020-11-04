@@ -30,7 +30,10 @@ class Detail extends StatelessWidget {
             onTap: () {},
             borderRadius: borderRadius,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15.0,
+                vertical: 20.0,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

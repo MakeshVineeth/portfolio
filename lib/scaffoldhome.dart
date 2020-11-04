@@ -66,6 +66,7 @@ class ScaffoldHome extends StatelessWidget {
                 getColumn(infos),
                 customDivider(),
                 getColumn(eduInfos),
+                customDivider(),
               ],
             ),
           ),
@@ -85,7 +86,7 @@ class ScaffoldHome extends StatelessWidget {
 
   Widget customDivider() {
     return Divider(
-      height: 40.0,
+      height: 45.0,
       color: Colors.grey[600],
       thickness: 1.0,
     );
