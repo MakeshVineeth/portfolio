@@ -9,6 +9,7 @@ class Detail extends StatelessWidget {
   Detail({@required this.title, @required this.desc, @required this.icon});
 
   final FixedValues fixedValues = FixedValues();
+  final BorderRadius borderRadius = BorderRadius.circular(25);
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +18,13 @@ class Detail extends StatelessWidget {
       width: (winSize > 600) ? winSize / 2 : winSize,
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: borderRadius,
         ),
         margin: EdgeInsets.all(5.0),
         elevation: 5.0,
         child: InkWell(
           onTap: () {},
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: borderRadius,
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(

@@ -9,8 +9,9 @@ class ScaffoldHome extends StatelessWidget {
     'LOCATION': ['Telangana, India', Icons.location_city_rounded],
     'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
     'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
-    'TYPE OF WORK': ['On-demand Freelancing', Icons.work_rounded],
+    'TYPE OF WORK': ['Freelancing', Icons.work_rounded],
     'ROLE': ['Software Developer', Icons.domain_rounded],
+    'CURRENT POSITION': ['Graduate, 2020', Icons.assignment_ind_rounded],
   };
 
   final FixedValues fixedValues = FixedValues();
