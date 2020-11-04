@@ -12,6 +12,28 @@ class ScaffoldHome extends StatelessWidget {
     'TYPE OF WORK': ['Freelancing', Icons.work_rounded],
     'ROLE': ['Software Developer', Icons.domain_rounded],
     'CURRENT POSITION': ['Graduate, 2020', Icons.assignment_ind_rounded],
+    //test
+    'NAME1': ['Makesh Vineeth', Icons.person],
+    'LOCATION1': ['Telangana, India', Icons.location_city_rounded],
+    'EMAIL1': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
+    'DEVELOPMENT1': ['C# and Flutter', Icons.developer_mode_rounded],
+    'TYPE OF WORK1': ['Freelancing', Icons.work_rounded],
+    'ROLE1': ['Software Developer', Icons.domain_rounded],
+    'CURRENT POSITION1': ['Graduate, 2020', Icons.assignment_ind_rounded],
+    'NAME2': ['Makesh Vineeth', Icons.person],
+    'LOCATION2': ['Telangana, India', Icons.location_city_rounded],
+    'EMAIL2': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
+    'DEVELOPMENT2': ['C# and Flutter', Icons.developer_mode_rounded],
+    'TYPE OF WORK2': ['Freelancing', Icons.work_rounded],
+    'ROLE2': ['Software Developer', Icons.domain_rounded],
+    'CURRENT POSITION2': ['Graduate, 2020', Icons.assignment_ind_rounded],
+    'NAME3': ['Makesh Vineeth', Icons.person],
+    'LOCATION3': ['Telangana, India', Icons.location_city_rounded],
+    'EMAIL3': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
+    'DEVELOPMENT3': ['C# and Flutter', Icons.developer_mode_rounded],
+    'TYPE OF WORK3': ['Freelancing', Icons.work_rounded],
+    'ROLE3': ['Software Developer', Icons.domain_rounded],
+    'CURRENT POSITION3': ['Graduate, 2020', Icons.assignment_ind_rounded],
   };
 
   final FixedValues fixedValues = FixedValues();
