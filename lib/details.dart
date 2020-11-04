@@ -4,15 +4,17 @@ import 'package:makesh_vineeth/fixedValues.dart';
 class Detail extends StatelessWidget {
   final title;
   final desc;
+  final icon;
 
-  Detail({@required this.title, @required this.desc});
+  Detail({@required this.title, @required this.desc, @required this.icon});
 
   final FixedValues fixedValues = FixedValues();
 
   @override
   Widget build(BuildContext context) {
+    double winSize = MediaQuery.of(context).size.width;
     return Container(
-      width: MediaQuery.of(context).size.width / 1.5,
+      width: (winSize > 600) ? winSize / 2 : winSize,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
@@ -36,11 +38,22 @@ class Detail extends StatelessWidget {
                 SizedBox(
                   height: 5.0,
                 ),
-                Center(
-                  child: Text(
-                    desc,
-                    style: fixedValues.textStyle,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      this.icon,
+                      size: 18.0,
+                    ),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    Text(
+                      desc,
+                      style: fixedValues.textStyle,
+                    ),
+                  ],
                 ),
               ],
             ),

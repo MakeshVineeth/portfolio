@@ -5,11 +5,12 @@ import 'package:makesh_vineeth/fixedValues.dart';
 
 class ScaffoldHome extends StatelessWidget {
   final infos = {
-    'NAME': 'Makesh Vineeth',
-    'COUNTRY': 'India',
-    'EMAIL': 'makeshvineeth9@gmail.com',
-    'DEVELOPMENT': '.NET and Flutter',
-    'TYPE OF WORK': 'On-demand Freelancing',
+    'NAME': ['Makesh Vineeth', Icons.person],
+    'LOCATION': ['Telangana, India', Icons.location_city_rounded],
+    'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded],
+    'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
+    'TYPE OF WORK': ['On-demand Freelancing', Icons.work_rounded],
+    'ROLE': ['Software Developer', Icons.domain_rounded],
   };
 
   final FixedValues fixedValues = FixedValues();
@@ -50,7 +51,8 @@ class ScaffoldHome extends StatelessWidget {
                 children: infos.entries
                     .map((entry) => Detail(
                           title: entry.key,
-                          desc: entry.value,
+                          desc: entry.value[0],
+                          icon: entry.value[1],
                         ))
                     .toList(),
               ),
