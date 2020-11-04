@@ -75,6 +75,7 @@ class ScaffoldHome extends StatelessWidget {
     return Divider(
       height: 50.0,
       color: Colors.grey[600],
+      thickness: 1.0,
     );
   }
 
