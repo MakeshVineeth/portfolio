@@ -1,13 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/scaffoldhome.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
-void main() {
-  runApp(VineethId());
-  GestureBinding.instance.resamplingEnabled = true;
-}
+void main() => runApp(VineethId());
 
 class VineethId extends StatefulWidget {
   @override
@@ -25,10 +22,19 @@ class _VineethIdState extends State<VineethId> {
       initial: AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
         title: fixedValues.appTitle,
-        home: ScaffoldHome(),
         theme: theme,
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,
+        builder: (context, widget) => ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, ScaffoldHome()),
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.resize(480, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(800, name: TABLET),
+            ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: '4K'),
+          ],
+        ),
       ),
     );
   }

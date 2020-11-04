@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   adaptive_theme: ^1.1.0
   flutter_rename_app: ^1.0.0
+  responsive_framework: ^0.0.11
 
 flutter_rename_app:
   application_name: Makesh Vineeth
