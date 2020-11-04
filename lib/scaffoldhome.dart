@@ -14,6 +14,22 @@ class ScaffoldHome extends StatelessWidget {
     'CURRENT POSITION': ['Graduate, 2020', Icons.assignment_ind_rounded],
   };
 
+  final eduInfos = {
+    'HIGHEST QUALIFICATION': [
+      'Bachelors in Computer Applications',
+      Icons.school_rounded
+    ],
+    'UNIVERSITY': [
+      'Koneru Lakshmaiah Education Foundation',
+      Icons.school_rounded
+    ],
+    'SPECIALIZATION': [
+      'Cloud Technology & Information Security',
+      Icons.school_rounded
+    ],
+    'Total CGPA': ['9.58', Icons.school_rounded],
+  };
+
   final FixedValues fixedValues = FixedValues();
 
   @override
@@ -44,23 +60,33 @@ class ScaffoldHome extends StatelessWidget {
                   radius: 80.0,
                 ),
               ),
-              Divider(
-                height: 50.0,
-                color: Colors.grey[600],
-              ),
-              Column(
-                children: infos.entries
-                    .map((entry) => Detail(
-                          title: entry.key,
-                          desc: entry.value[0],
-                          icon: entry.value[1],
-                        ))
-                    .toList(),
-              ),
+              customDivider(),
+              getColumn(infos),
+              customDivider(),
+              getColumn(eduInfos),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget customDivider() {
+    return Divider(
+      height: 50.0,
+      color: Colors.grey[600],
+    );
+  }
+
+  Widget getColumn(final data) {
+    return Column(
+      children: data.entries
+          .map<Widget>((entry) => Detail(
+                title: entry.key,
+                desc: entry.value[0],
+                icon: entry.value.length == 2 ? entry.value[1] : null,
+              ))
+          .toList(),
     );
   }
 }

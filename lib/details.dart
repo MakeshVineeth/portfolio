@@ -6,7 +6,7 @@ class Detail extends StatelessWidget {
   final desc;
   final icon;
 
-  Detail({@required this.title, @required this.desc, @required this.icon});
+  Detail({@required this.title, @required this.desc, this.icon});
 
   final FixedValues fixedValues = FixedValues();
   final BorderRadius borderRadius = BorderRadius.circular(25);
@@ -43,10 +43,11 @@ class Detail extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
-                      this.icon,
-                      size: 18.0,
-                    ),
+                    if (this.icon != null)
+                      Icon(
+                        this.icon,
+                        size: 18.0,
+                      ),
                     SizedBox(
                       width: 5.0,
                     ),
