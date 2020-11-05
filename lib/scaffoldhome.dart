@@ -10,41 +10,46 @@ class ScaffoldHome extends StatelessWidget {
   static final tnLoc = 'https://goo.gl/maps/ofDShJhYNYTLYwKt8';
   static final kluAddress = 'https://goo.gl/maps/wEzAiUt8qdotkRKE7';
   static final kluWeb = 'https://www.kluniversity.in';
+  static final linkedIn = 'https://www.linkedin.com/in/makeshvineeth/';
+  static final bcaInfo =
+      'https://en.wikipedia.org/wiki/Bachelor_of_Computer_Application';
+  static final cloudInfo = 'https://www.kluniversity.in/bca/default.aspx';
+  static final aboutFreelance = 'https://en.wikipedia.org/wiki/Freelancer';
+  static final aboutSoftDev =
+      'https://en.wikipedia.org/wiki/Software_development';
 
   final infos = {
-    'NAME': ['Makesh Vineeth', Icons.person],
-    'LOCATION': ['Telangana, India', Icons.location_city_rounded, tnLoc],
-    'EMAIL': [
-      'makeshvineeth9@gmail.com',
-      Icons.mail_rounded,
-      mail,
-    ],
+    'NAME': ['Makesh Vineeth', Icons.person, linkedIn],
+    'LOCATION': ['Telangana, India', Icons.person_pin_circle_rounded, tnLoc],
+    'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded, mail],
     'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
-    'TYPE OF WORK': ['Freelancing', Icons.work_rounded],
-    'ROLE': ['Software Developer', Icons.domain_rounded],
+    'TYPE OF WORK': ['Freelancing', Icons.work_rounded, aboutFreelance],
+    'ROLE': ['Software Developer', Icons.domain_rounded, aboutSoftDev],
     'CURRENT POSITION': ['Graduated, 2020', Icons.assignment_ind_rounded],
   };
 
   final eduInfos = {
     'HIGHEST QUALIFICATION': [
       'Bachelors in Computer Applications',
-      Icons.school_rounded
+      Icons.school_rounded,
+      bcaInfo
     ],
     'UNIVERSITY': [
       'Koneru Lakshmaiah Education Foundation',
-      Icons.school_rounded,
+      Icons.domain_rounded,
       kluWeb
     ],
     'UNIVERSITY LOCATION': [
       'Vijayawada, AP',
-      Icons.location_city_rounded,
+      Icons.location_on_rounded,
       kluAddress
     ],
     'SPECIALIZATION': [
       'Cloud Technology & Information Security',
-      Icons.school_rounded
+      Icons.school_rounded,
+      cloudInfo
     ],
-    'TOTAL CGPA': ['9.58', Icons.school_rounded],
+    'TOTAL CGPA': ['9.58', Icons.score_rounded],
   };
 
   final FixedValues fixedValues = FixedValues();
@@ -112,7 +117,7 @@ class ScaffoldHome extends StatelessWidget {
           .map<Widget>((entry) => Detail(
                 title: entry.key,
                 desc: entry.value[0],
-                icon: entry.value.length == 2 ? entry.value[1] : null,
+                icon: entry.value[1],
                 url: entry.value.length == 3 ? entry.value[2] : null,
               ))
           .toList(),
