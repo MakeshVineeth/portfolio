@@ -21,7 +21,7 @@ class FixedValues {
       scaffoldBackgroundColor: appBarColor,
       primaryColor: appBarColor,
       cardColor: appBarColor,
-      appBarTheme: appBarStyle(),
+      appBarTheme: appBarStyle(brightness),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         foregroundColor: appBarFont,
         backgroundColor: appBarColor,
@@ -29,13 +29,15 @@ class FixedValues {
     );
   }
 
-  AppBarTheme appBarStyle() {
+  AppBarTheme appBarStyle(Brightness brightness) {
+    bool isDark = brightness == Brightness.dark;
     return AppBarTheme(
       centerTitle: true,
+      color: isDark ? appBarColor : appBarFont,
       textTheme: TextTheme(
         headline6: TextStyle(
           fontWeight: FontWeight.bold,
-          color: appBarFont,
+          color: isDark ? appBarFont : appBarColor,
           fontSize: 20.0,
           letterSpacing: 0.5,
         ),
