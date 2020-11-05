@@ -36,47 +36,49 @@ class Detail extends StatelessWidget {
               if (this.url != null) _launchURL(this.url);
             },
             borderRadius: borderRadius,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15.0,
-                vertical: 20.0,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Center(
-                    child: Text(
-                      title,
-                      style: fixedValues.headingStyle(context),
+            child: IgnorePointer(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15.0,
+                  vertical: 20.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: Text(
+                        title,
+                        style: fixedValues.headingStyle(context),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      if (this.icon != null)
-                        Icon(
-                          this.icon,
-                          size: 18.0,
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (this.icon != null)
+                          Icon(
+                            this.icon,
+                            size: 18.0,
+                          ),
+                        SizedBox(
+                          width: 5.0,
                         ),
-                      SizedBox(
-                        width: 5.0,
-                      ),
-                      TypewriterAnimatedTextKit(
-                        text: [desc],
-                        textStyle: fixedValues.textStyle(context),
-                        textAlign: TextAlign.center,
-                        alignment: AlignmentDirectional.center,
-                        displayFullTextOnTap: true,
-                        isRepeatingAnimation: false,
-                        speed: Duration(milliseconds: 150),
-                      ),
-                    ],
-                  ),
-                ],
+                        TypewriterAnimatedTextKit(
+                          text: [desc],
+                          textStyle: fixedValues.textStyle(context),
+                          textAlign: TextAlign.center,
+                          alignment: AlignmentDirectional.center,
+                          displayFullTextOnTap: true,
+                          isRepeatingAnimation: false,
+                          speed: Duration(milliseconds: 150),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
