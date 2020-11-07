@@ -60,6 +60,7 @@ class ScaffoldHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double winSize = MediaQuery.of(context).size.width;
     return FadeIn(
       duration: Duration(milliseconds: 1000),
       child: Scaffold(
@@ -79,24 +80,29 @@ class ScaffoldHome extends StatelessWidget {
           ),
         ),
         body: AnimationLimiter(
-          child: ListView.builder(
-            padding: EdgeInsets.all(30),
-            scrollDirection: Axis.vertical,
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            itemCount: ui.length,
-            itemBuilder: (context, index) {
-              return AnimationConfiguration.staggeredList(
-                position: index,
-                duration: const Duration(seconds: 1),
-                child: SlideAnimation(
-                  horizontalOffset: MediaQuery.of(context).size.width / 3,
-                  child: FadeInAnimation(
-                    child: ui[index],
-                  ),
-                ),
-              );
-            },
+          child: Center(
+            child: Container(
+              width: (winSize > 600) ? winSize / 2 : winSize,
+              child: ListView.builder(
+                padding: EdgeInsets.all(30),
+                scrollDirection: Axis.vertical,
+                physics: BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                itemCount: ui.length,
+                itemBuilder: (context, index) {
+                  return AnimationConfiguration.staggeredList(
+                    position: index,
+                    duration: const Duration(seconds: 1),
+                    child: SlideAnimation(
+                      horizontalOffset: MediaQuery.of(context).size.width / 3,
+                      child: FadeInAnimation(
+                        child: ui[index],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         ),
       ),
