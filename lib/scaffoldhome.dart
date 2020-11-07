@@ -20,7 +20,7 @@ class ScaffoldHome extends StatelessWidget {
   static final aboutSoftDev =
       'https://en.wikipedia.org/wiki/Software_development';
 
-  final infos = {
+  static final infos = {
     'NAME': ['Makesh Vineeth', Icons.person, linkedIn],
     'LOCATION': ['Telangana, India', Icons.person_pin_circle_rounded, tnLoc],
     'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded, mail],
@@ -30,7 +30,7 @@ class ScaffoldHome extends StatelessWidget {
     'CURRENT POSITION': ['Graduated, 2020', Icons.assignment_ind_rounded],
   };
 
-  final eduInfos = {
+  static final eduInfos = {
     'HIGHEST QUALIFICATION': [
       'Bachelors in Computer Applications',
       Icons.school_rounded,
@@ -56,6 +56,7 @@ class ScaffoldHome extends StatelessWidget {
 
   final FixedValues fixedValues = FixedValues();
   final snackBar = SnackBar(content: Text('Changed to System Default Theme!'));
+  final List<Widget> ui = getUiList();
 
   @override
   Widget build(BuildContext context) {
@@ -77,34 +78,40 @@ class ScaffoldHome extends StatelessWidget {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: AnimationLimiter(
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              physics: BouncingScrollPhysics(),
-              children: AnimationConfiguration.toStaggeredList(
+        body: AnimationLimiter(
+          child: ListView.builder(
+            padding: EdgeInsets.all(30),
+            scrollDirection: Axis.vertical,
+            physics:
+                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            itemCount: ui.length,
+            itemBuilder: (context, index) {
+              return AnimationConfiguration.staggeredList(
+                position: index,
                 duration: const Duration(seconds: 1),
-                childAnimationBuilder: (widget) => SlideAnimation(
+                child: SlideAnimation(
                   horizontalOffset: MediaQuery.of(context).size.width / 3,
                   child: FadeInAnimation(
-                    child: widget,
+                    child: ui[index],
                   ),
                 ),
-                children: [
-                  CircleImage(),
-                  customDivider(),
-                  getColumn(infos),
-                  customDivider(),
-                  getColumn(eduInfos),
-                  customDivider(),
-                ],
-              ),
-            ),
+              );
+            },
           ),
         ),
       ),
     );
+  }
+
+  static List<Widget> getUiList() {
+    List<Widget> ui = [];
+    ui.add(CircleImage());
+    ui.add(customDivider());
+    ui.addAll(getDetailsList(infos));
+    ui.add(customDivider());
+    ui.addAll(getDetailsList(eduInfos));
+    ui.add(customDivider());
+    return ui;
   }
 
   void changeThemeLongPress(BuildContext context) {
@@ -116,7 +123,7 @@ class ScaffoldHome extends StatelessWidget {
     AdaptiveTheme.of(context).toggleThemeMode();
   }
 
-  Widget customDivider() {
+  static Widget customDivider() {
     return Divider(
       height: 45.0,
       color: Colors.grey[600],
@@ -124,16 +131,14 @@ class ScaffoldHome extends StatelessWidget {
     );
   }
 
-  Widget getColumn(final data) {
-    return Column(
-      children: data.entries
-          .map<Widget>((entry) => Detail(
-                title: entry.key,
-                desc: entry.value[0],
-                icon: entry.value[1],
-                url: entry.value.length == 3 ? entry.value[2] : null,
-              ))
-          .toList(),
-    );
+  static List<Widget> getDetailsList(final data) {
+    return data.entries
+        .map<Widget>((entry) => Detail(
+              title: entry.key,
+              desc: entry.value[0],
+              icon: entry.value[1],
+              url: entry.value.length == 3 ? entry.value[2] : null,
+            ))
+        .toList();
   }
 }
