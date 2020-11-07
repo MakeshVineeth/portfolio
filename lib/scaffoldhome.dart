@@ -76,28 +76,28 @@ class ScaffoldHome extends StatelessWidget {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: AnimationLimiter(
-              child: Column(
-                children: AnimationConfiguration.toStaggeredList(
-                  duration: const Duration(seconds: 1),
-                  childAnimationBuilder: (widget) => SlideAnimation(
-                    horizontalOffset: MediaQuery.of(context).size.width / 3,
-                    child: FadeInAnimation(
-                      child: widget,
-                    ),
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: AnimationLimiter(
+            child: ListView(
+              physics: BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
+              children: AnimationConfiguration.toStaggeredList(
+                duration: const Duration(seconds: 1),
+                childAnimationBuilder: (widget) => SlideAnimation(
+                  horizontalOffset: MediaQuery.of(context).size.width / 3,
+                  child: FadeInAnimation(
+                    child: widget,
                   ),
-                  children: [
-                    CircleImage(),
-                    customDivider(),
-                    getColumn(infos),
-                    customDivider(),
-                    getColumn(eduInfos),
-                    customDivider(),
-                  ],
                 ),
+                children: [
+                  CircleImage(),
+                  customDivider(),
+                  getColumn(infos),
+                  customDivider(),
+                  getColumn(eduInfos),
+                  customDivider(),
+                ],
               ),
             ),
           ),
