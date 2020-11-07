@@ -10,7 +10,9 @@ class Detail extends StatelessWidget {
   final icon;
   final url;
 
-  Detail({@required this.title, @required this.desc, this.icon, this.url});
+  Detail(
+      {@required this.title, @required this.desc, this.icon, this.url, Key key})
+      : super(key: key);
 
   final FixedValues fixedValues = FixedValues();
   final BorderRadius borderRadius = BorderRadius.circular(25);
@@ -73,7 +75,6 @@ class Detail extends StatelessWidget {
                           alignment: AlignmentDirectional.center,
                           displayFullTextOnTap: true,
                           isRepeatingAnimation: false,
-                          speed: Duration(milliseconds: 150),
                         ),
                       ],
                     ),
