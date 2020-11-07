@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:makesh_vineeth/details.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
@@ -80,8 +81,8 @@ class ScaffoldHome extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: AnimationLimiter(
             child: ListView(
-              physics: BouncingScrollPhysics(
-                  parent: AlwaysScrollableScrollPhysics()),
+              scrollDirection: Axis.vertical,
+              physics: BouncingScrollPhysics(),
               children: AnimationConfiguration.toStaggeredList(
                 duration: const Duration(seconds: 1),
                 childAnimationBuilder: (widget) => SlideAnimation(

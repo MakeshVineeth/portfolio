@@ -30,7 +30,7 @@ class _VineethIdState extends State<VineethId> {
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,
         builder: (context, widget) => ResponsiveWrapper.builder(
-          BouncingScrollWrapper.builder(context, ScaffoldHome()),
+          ScaffoldHome(),
           defaultScale: true,
           breakpoints: [
             ResponsiveBreakpoint.resize(480, name: MOBILE),
