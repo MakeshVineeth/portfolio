@@ -4,6 +4,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:makesh_vineeth/circleImage.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class ScaffoldHome extends StatelessWidget {
   static final mail = 'mailto:makeshvineeth9@gmail.com';
@@ -78,15 +79,26 @@ class ScaffoldHome extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                CircleImage(),
-                customDivider(),
-                getColumn(infos),
-                customDivider(),
-                getColumn(eduInfos),
-                customDivider(),
-              ],
+            child: AnimationLimiter(
+              child: Column(
+                children: AnimationConfiguration.toStaggeredList(
+                  duration: const Duration(seconds: 1),
+                  childAnimationBuilder: (widget) => SlideAnimation(
+                    horizontalOffset: MediaQuery.of(context).size.width / 3,
+                    child: FadeInAnimation(
+                      child: widget,
+                    ),
+                  ),
+                  children: [
+                    CircleImage(),
+                    customDivider(),
+                    getColumn(infos),
+                    customDivider(),
+                    getColumn(eduInfos),
+                    customDivider(),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
