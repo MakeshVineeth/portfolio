@@ -1,14 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:makesh_vineeth/scaffoldhome.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-void main() {
-  runApp(VineethId());
-  GestureBinding.instance.resamplingEnabled = true;
-}
+void main() => runApp(VineethId());
 
 class VineethId extends StatefulWidget {
   @override
