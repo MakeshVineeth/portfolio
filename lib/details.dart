@@ -3,7 +3,7 @@ import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Detail extends StatelessWidget {
+class Detail extends StatefulWidget {
   final title;
   final desc;
   final icon;
@@ -13,14 +13,22 @@ class Detail extends StatelessWidget {
       {@required this.title, @required this.desc, this.icon, this.url, Key key})
       : super(key: key);
 
-  final FixedValues fixedValues = FixedValues();
-  final BorderRadius borderRadius = BorderRadius.circular(25);
   static _launchURL(String url) async {
     if (await canLaunch(url)) await launch(url);
   }
 
   @override
+  _DetailState createState() => _DetailState();
+}
+
+class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
+  final FixedValues fixedValues = FixedValues();
+  final BorderRadius borderRadius = BorderRadius.circular(25);
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
@@ -29,7 +37,7 @@ class Detail extends StatelessWidget {
       elevation: 5.0,
       child: InkWell(
         onTap: () {
-          if (this.url != null) _launchURL(this.url);
+          if (this.widget.url != null) Detail._launchURL(this.widget.url);
         },
         borderRadius: borderRadius,
         child: IgnorePointer(
@@ -43,7 +51,7 @@ class Detail extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    title,
+                    widget.title,
                     style: fixedValues.headingStyle(context),
                   ),
                 ),
@@ -54,19 +62,22 @@ class Detail extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (this.icon != null)
+                    if (this.widget.icon != null)
                       Icon(
-                        this.icon,
+                        this.widget.icon,
                         size: 18.0,
                       ),
                     SizedBox(
                       width: 5.0,
                     ),
-                    TypewriterAnimatedTextKit(
-                      text: [desc],
-                      textStyle: fixedValues.textStyle(context),
-                      textAlign: TextAlign.center,
-                      alignment: AlignmentDirectional.center,
+                    AnimatedTextKit(
+                      animatedTexts: [
+                        TyperAnimatedText(
+                          widget.desc,
+                          textStyle: fixedValues.textStyle(context),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                       displayFullTextOnTap: true,
                       isRepeatingAnimation: false,
                     ),
@@ -79,4 +90,7 @@ class Detail extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

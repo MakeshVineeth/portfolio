@@ -25,7 +25,11 @@ class ScaffoldHome extends StatelessWidget {
     'LOCATION': ['Telangana, India', Icons.person_pin_circle_rounded, tnLoc],
     'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded, mail],
     'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
-    'TYPE OF WORK': ['Freelancing', Icons.work_rounded, aboutFreelance],
+    'TYPE OF WORK': [
+      'Freelancing & Full-Time',
+      Icons.work_rounded,
+      aboutFreelance
+    ],
     'ROLE': ['Software Developer', Icons.domain_rounded, aboutSoftDev],
     'CURRENT POSITION': ['Graduated, 2020', Icons.assignment_ind_rounded],
   };
@@ -84,6 +88,7 @@ class ScaffoldHome extends StatelessWidget {
             child: Container(
               width: (winSize > 600) ? winSize / 2 : winSize,
               child: ListView.builder(
+                addAutomaticKeepAlives: true,
                 padding: EdgeInsets.all(30),
                 scrollDirection: Axis.vertical,
                 physics: BouncingScrollPhysics(
