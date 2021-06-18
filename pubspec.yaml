@@ -13,23 +13,14 @@ dependencies:
   adaptive_theme: ^2.2.0
   animated_text_kit: ^4.2.1
   flutter_fadein: ^2.0.0
-  flutter_rename_app: ^1.0.0
   flutter_staggered_animations: ^1.0.0
   octo_image: ^1.0.0+1
-  responsive_framework: ^0.1.0
+  responsive_framework: ^0.1.2
   url_launcher: ^6.0.3
-
-flutter_rename_app:
-  application_name: Makesh Vineeth
-  dart_package_name: makesh_vineeth
-  application_id: com.makesh.vineeth
-  bundle_id: com.makesh.vineeth
-  android_package_name: com.makesh.vineeth
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.8.1
 
 flutter_icons:
   android: "mv_icon"

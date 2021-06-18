@@ -23,18 +23,17 @@ class Detail extends StatefulWidget {
 
 class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
   final FixedValues fixedValues = FixedValues();
-  final BorderRadius borderRadius = BorderRadius.circular(25);
+  final BorderRadius borderRadius = BorderRadius.circular(20);
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
       ),
       margin: EdgeInsets.all(5.0),
-      elevation: 5.0,
+      elevation: 2.0,
       child: InkWell(
         onTap: () {
           if (this.widget.url != null) Detail._launchURL(this.widget.url);

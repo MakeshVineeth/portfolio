@@ -89,23 +89,22 @@ class ScaffoldHome extends StatelessWidget {
               width: (winSize > 600) ? winSize / 2 : winSize,
               child: ListView.builder(
                 addAutomaticKeepAlives: true,
-                padding: EdgeInsets.all(30),
+                padding: EdgeInsets.all(20),
                 scrollDirection: Axis.vertical,
-                physics: BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
+                physics: AlwaysScrollableScrollPhysics(
+                    parent: BouncingScrollPhysics()),
                 itemCount: ui.length,
-                itemBuilder: (context, index) {
-                  return AnimationConfiguration.staggeredList(
-                    position: index,
-                    duration: const Duration(seconds: 1),
-                    child: SlideAnimation(
-                      horizontalOffset: MediaQuery.of(context).size.width / 3,
-                      child: FadeInAnimation(
-                        child: ui[index],
-                      ),
+                itemBuilder: (context, index) =>
+                    AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(seconds: 1),
+                  child: SlideAnimation(
+                    horizontalOffset: MediaQuery.of(context).size.width / 3,
+                    child: FadeInAnimation(
+                      child: ui[index],
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
           ),
@@ -117,11 +116,9 @@ class ScaffoldHome extends StatelessWidget {
   static List<Widget> getUiList() {
     List<Widget> ui = [];
     ui.add(CircleImage());
-    ui.add(customDivider());
     ui.addAll(getDetailsList(infos));
     ui.add(customDivider());
     ui.addAll(getDetailsList(eduInfos));
-    ui.add(customDivider());
     return ui;
   }
 

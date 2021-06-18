@@ -5,7 +5,7 @@ class FixedValues {
 
   // Default Initializations to White Theme.
   Color appBarColor = Colors.white;
-  Color appBarFont = Colors.red[600];
+  Color appBarFont = Colors.blue[900];
 
   ThemeData getDarkTheme() {
     appBarColor = Colors.grey[850];
@@ -34,12 +34,12 @@ class FixedValues {
     return AppBarTheme(
       centerTitle: true,
       color: isDark ? appBarColor : appBarFont,
+      elevation: 3,
       textTheme: TextTheme(
         headline6: TextStyle(
           fontWeight: FontWeight.bold,
           color: isDark ? appBarFont : appBarColor,
           fontSize: 20.0,
-          letterSpacing: 0.5,
         ),
       ),
     );
