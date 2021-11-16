@@ -89,6 +89,7 @@ class ScaffoldHome extends StatelessWidget {
             child: Container(
               width: (winSize > 600) ? winSize / 2 : winSize,
               child: ListView.builder(
+                cacheExtent: 2000,
                 addAutomaticKeepAlives: true,
                 padding: EdgeInsets.all(20),
                 scrollDirection: Axis.vertical,
