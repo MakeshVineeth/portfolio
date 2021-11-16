@@ -65,6 +65,7 @@ class ScaffoldHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double winSize = MediaQuery.of(context).size.width;
+
     return FadeIn(
       duration: Duration(milliseconds: 1000),
       child: Scaffold(
@@ -127,26 +128,21 @@ class ScaffoldHome extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  void changeThemeTap(BuildContext context) {
-    AdaptiveTheme.of(context).toggleThemeMode();
-  }
+  void changeThemeTap(BuildContext context) =>
+      AdaptiveTheme.of(context).toggleThemeMode();
 
-  static Widget customDivider() {
-    return Divider(
-      height: 45.0,
-      color: Colors.grey[600],
-      thickness: 1.0,
-    );
-  }
+  static Widget customDivider() => Divider(
+        height: 45.0,
+        color: Colors.grey[600],
+        thickness: 1.0,
+      );
 
-  static List<Widget> getDetailsList(final data) {
-    return data.entries
-        .map<Widget>((entry) => Detail(
-              title: entry.key,
-              desc: entry.value[0],
-              icon: entry.value[1],
-              url: entry.value.length == 3 ? entry.value[2] : null,
-            ))
-        .toList();
-  }
+  static List<Widget> getDetailsList(final data) => data.entries
+      .map<Widget>((entry) => Detail(
+            title: entry.key,
+            desc: entry.value[0],
+            icon: entry.value[1],
+            url: entry.value.length == 3 ? entry.value[2] : null,
+          ))
+      .toList();
 }

@@ -19,7 +19,7 @@ class _VineethIdState extends State<VineethId> {
     return AdaptiveTheme(
       light: fixedValues.getThemeData(Brightness.light),
       dark: fixedValues.getDarkTheme(),
-      initial: AdaptiveThemeMode.system,
+      initial: AdaptiveThemeMode.dark,
       builder: (theme, darkTheme) => MaterialApp(
         title: fixedValues.appTitle,
         theme: theme,
@@ -28,7 +28,7 @@ class _VineethIdState extends State<VineethId> {
         builder: (context, widget) => ResponsiveWrapper.builder(
           ScaffoldHome(),
           defaultScale: true,
-          breakpoints: [
+          breakpoints: <ResponsiveBreakpoint>[
             ResponsiveBreakpoint.resize(480, name: MOBILE),
             ResponsiveBreakpoint.autoScale(800, name: TABLET),
             ResponsiveBreakpoint.resize(1000, name: DESKTOP),

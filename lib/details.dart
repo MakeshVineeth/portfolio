@@ -9,7 +9,7 @@ class Detail extends StatefulWidget {
   final icon;
   final url;
 
-  Detail(
+  const Detail(
       {@required this.title, @required this.desc, this.icon, this.url, Key key})
       : super(key: key);
 
@@ -28,6 +28,7 @@ class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,

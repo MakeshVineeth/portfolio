@@ -14,23 +14,23 @@ class FixedValues {
     return getThemeData(Brightness.dark);
   }
 
-  ThemeData getThemeData(Brightness brightness) {
-    return ThemeData(
-      brightness: brightness,
-      applyElevationOverlayColor: brightness == Brightness.dark ? true : false,
-      scaffoldBackgroundColor: appBarColor,
-      primaryColor: appBarColor,
-      cardColor: appBarColor,
-      appBarTheme: appBarStyle(brightness),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        foregroundColor: appBarFont,
-        backgroundColor: appBarColor,
-      ),
-    );
-  }
+  ThemeData getThemeData(Brightness brightness) => ThemeData(
+        brightness: brightness,
+        applyElevationOverlayColor:
+            brightness == Brightness.dark ? true : false,
+        scaffoldBackgroundColor: appBarColor,
+        primaryColor: appBarColor,
+        cardColor: appBarColor,
+        appBarTheme: appBarStyle(brightness),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          foregroundColor: appBarFont,
+          backgroundColor: appBarColor,
+        ),
+      );
 
   AppBarTheme appBarStyle(Brightness brightness) {
     bool isDark = brightness == Brightness.dark;
+
     return AppBarTheme(
       centerTitle: true,
       color: isDark ? appBarColor : appBarFont,
@@ -43,20 +43,16 @@ class FixedValues {
     );
   }
 
-  TextStyle headingStyle(BuildContext context) {
-    return TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-      color: Theme.of(context).brightness == Brightness.light
-          ? appBarFont
-          : Colors.amberAccent,
-    );
-  }
+  TextStyle headingStyle(BuildContext context) => TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).brightness == Brightness.light
+            ? appBarFont
+            : Colors.amberAccent,
+      );
 
-  TextStyle textStyle(BuildContext context) {
-    return TextStyle(
-      fontSize: 15.0,
-      fontWeight: FontWeight.w600,
-    );
-  }
+  TextStyle textStyle(BuildContext context) => TextStyle(
+        fontSize: 15.0,
+        fontWeight: FontWeight.w600,
+      );
 }
