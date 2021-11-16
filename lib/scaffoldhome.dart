@@ -61,6 +61,7 @@ class ScaffoldHome extends StatelessWidget {
   final FixedValues fixedValues = FixedValues();
   final snackBar = SnackBar(content: Text('Changed to System Default Theme!'));
   final List<Widget> ui = getUiList();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -88,22 +89,30 @@ class ScaffoldHome extends StatelessWidget {
           child: Center(
             child: Container(
               width: (winSize > 600) ? winSize / 2 : winSize,
-              child: ListView.builder(
-                cacheExtent: 2000,
-                addAutomaticKeepAlives: true,
-                padding: EdgeInsets.all(20),
-                scrollDirection: Axis.vertical,
-                physics: AlwaysScrollableScrollPhysics(
-                    parent: BouncingScrollPhysics()),
-                itemCount: ui.length,
-                itemBuilder: (context, index) =>
-                    AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(seconds: 1),
-                  child: SlideAnimation(
-                    horizontalOffset: MediaQuery.of(context).size.width / 3,
-                    child: FadeInAnimation(
-                      child: ui[index],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Scrollbar(
+                  isAlwaysShown: true,
+                  controller: _scrollController,
+                  child: ListView.builder(
+                    cacheExtent: 2000,
+                    controller: _scrollController,
+                    addAutomaticKeepAlives: true,
+                    padding: EdgeInsets.all(20),
+                    scrollDirection: Axis.vertical,
+                    physics: AlwaysScrollableScrollPhysics(
+                        parent: BouncingScrollPhysics()),
+                    itemCount: ui.length,
+                    itemBuilder: (context, index) =>
+                        AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(seconds: 1),
+                      child: SlideAnimation(
+                        horizontalOffset: MediaQuery.of(context).size.width / 3,
+                        child: FadeInAnimation(
+                          child: ui[index],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -118,6 +127,12 @@ class ScaffoldHome extends StatelessWidget {
   static List<Widget> getUiList() {
     List<Widget> ui = [];
     ui.add(CircleImage());
+
+    ui.add(Divider(
+      thickness: 0,
+      color: Colors.transparent,
+    ));
+
     ui.addAll(getDetailsList(infos));
     ui.add(customDivider());
     ui.addAll(getDetailsList(eduInfos));
