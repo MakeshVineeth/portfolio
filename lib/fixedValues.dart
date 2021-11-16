@@ -35,12 +35,10 @@ class FixedValues {
       centerTitle: true,
       color: isDark ? appBarColor : appBarFont,
       elevation: 3,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: isDark ? appBarFont : appBarColor,
-          fontSize: 20.0,
-        ),
+      titleTextStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: isDark ? appBarFont : appBarColor,
+        fontSize: 20.0,
       ),
     );
   }
