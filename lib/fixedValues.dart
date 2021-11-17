@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class FixedValues {
@@ -27,6 +26,7 @@ class FixedValues {
         textTheme: TextTheme(
           bodyText2: Theme.of(context).textTheme.bodyText2.copyWith(
             fontFeatures: const [FontFeature.proportionalFigures()],
+            color: Colors.white,
           ),
         ),
         appBarTheme: appBarStyle(brightness),
