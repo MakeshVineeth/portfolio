@@ -70,6 +70,7 @@ class ScaffoldHome extends StatelessWidget {
       duration: Duration(milliseconds: 1000),
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 60,
           title: Text(
             fixedValues.appTitle,
           ),
@@ -87,7 +88,7 @@ class ScaffoldHome extends StatelessWidget {
                     cacheExtent: 2000,
                     controller: _scrollController,
                     addAutomaticKeepAlives: true,
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(5),
                     scrollDirection: Axis.vertical,
                     physics: AlwaysScrollableScrollPhysics(
                         parent: BouncingScrollPhysics()),
@@ -116,12 +117,6 @@ class ScaffoldHome extends StatelessWidget {
   static List<Widget> getUiList() {
     List<Widget> ui = [];
     ui.add(CircleImage());
-
-    ui.add(Divider(
-      thickness: 0,
-      color: Colors.transparent,
-    ));
-
     ui.addAll(getDetailsList(infos));
     ui.add(customDivider());
     ui.addAll(getDetailsList(eduInfos));

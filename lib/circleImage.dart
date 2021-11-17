@@ -9,14 +9,17 @@ class CircleImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: OctoImage.fromSet(
-        image: AssetImage('assets/profile.jpg'),
-        width: MediaQuery.of(context).size.width / 2.5,
-        height: MediaQuery.of(context).size.height / 2.5,
-        fit: BoxFit.cover,
-        octoSet: OctoSet.circleAvatar(
-          backgroundColor: Colors.transparent,
-          text: Text(''),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 5),
+        child: OctoImage.fromSet(
+          image: AssetImage('assets/profile.jpg'),
+          width: MediaQuery.of(context).size.width / 2.5,
+          height: MediaQuery.of(context).size.height / 2.5,
+          fit: BoxFit.cover,
+          octoSet: OctoSet.circleAvatar(
+            backgroundColor: Colors.transparent,
+            text: Text(''),
+          ),
         ),
       ),
     );
