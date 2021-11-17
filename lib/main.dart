@@ -18,8 +18,8 @@ class _VineethIdState extends State<VineethId> {
     return MaterialApp(
       title: fixedValues.appTitle,
       themeMode: ThemeMode.dark,
-      theme: fixedValues.getThemeData(Brightness.light),
-      darkTheme: fixedValues.getDarkTheme(),
+      theme: fixedValues.getThemeData(Brightness.light, context),
+      darkTheme: fixedValues.getDarkTheme(context),
       debugShowCheckedModeBanner: false,
       builder: (context, widget) => ResponsiveWrapper.builder(
         ScaffoldHome(),

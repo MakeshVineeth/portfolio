@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class FixedValues {
@@ -7,20 +9,26 @@ class FixedValues {
   Color appBarColor = Colors.white;
   Color appBarFont = Colors.blue[900];
 
-  ThemeData getDarkTheme() {
+  ThemeData getDarkTheme(BuildContext context) {
     appBarColor = Colors.grey[850];
     appBarFont = Colors.amberAccent;
 
-    return getThemeData(Brightness.dark);
+    return getThemeData(Brightness.dark, context);
   }
 
-  ThemeData getThemeData(Brightness brightness) => ThemeData(
+  ThemeData getThemeData(Brightness brightness, BuildContext context) =>
+      ThemeData(
         brightness: brightness,
         applyElevationOverlayColor:
             brightness == Brightness.dark ? true : false,
         scaffoldBackgroundColor: appBarColor,
         primaryColor: appBarColor,
         cardColor: appBarColor,
+        textTheme: TextTheme(
+          bodyText2: Theme.of(context).textTheme.bodyText2.copyWith(
+            fontFeatures: const [FontFeature.proportionalFigures()],
+          ),
+        ),
         appBarTheme: appBarStyle(brightness),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           foregroundColor: appBarFont,
