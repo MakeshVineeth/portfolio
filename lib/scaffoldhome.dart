@@ -88,7 +88,7 @@ class ScaffoldHome extends StatelessWidget {
                     cacheExtent: 2000,
                     controller: _scrollController,
                     addAutomaticKeepAlives: true,
-                    padding: EdgeInsets.all(5),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                     scrollDirection: Axis.vertical,
                     physics: AlwaysScrollableScrollPhysics(
                         parent: BouncingScrollPhysics()),
