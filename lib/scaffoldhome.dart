@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:makesh_vineeth/details.dart';
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:makesh_vineeth/circleImage.dart';
@@ -75,16 +74,6 @@ class ScaffoldHome extends StatelessWidget {
             fixedValues.appTitle,
           ),
         ),
-        floatingActionButton: InkWell(
-          hoverColor: Colors.transparent,
-          onLongPress: () => changeThemeLongPress(context),
-          child: FloatingActionButton(
-            onPressed: () => changeThemeTap(context),
-            child: Icon(
-              Icons.lightbulb_outline_rounded,
-            ),
-          ),
-        ),
         body: AnimationLimiter(
           child: Center(
             child: Container(
@@ -138,14 +127,6 @@ class ScaffoldHome extends StatelessWidget {
     ui.addAll(getDetailsList(eduInfos));
     return ui;
   }
-
-  void changeThemeLongPress(BuildContext context) {
-    AdaptiveTheme.of(context).setSystem();
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  void changeThemeTap(BuildContext context) =>
-      AdaptiveTheme.of(context).toggleThemeMode();
 
   static Widget customDivider() => Divider(
         height: 45.0,
