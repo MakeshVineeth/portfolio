@@ -36,7 +36,7 @@ class FixedValues {
       color: isDark ? appBarColor : appBarFont,
       elevation: 3,
       titleTextStyle: TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w900,
         color: isDark ? appBarFont : appBarColor,
         fontSize: 20.0,
       ),
