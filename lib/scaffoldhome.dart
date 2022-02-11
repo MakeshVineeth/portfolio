@@ -14,8 +14,6 @@ class ScaffoldHome extends StatelessWidget {
   static final degInfo =
       'https://www.amity.edu/course-details.aspx?fd=FzNymoX3dH0=&cfn=rq3kzaCPdYSngjgUzM2Drw==&CD=rq3kzaCPdYSngjgUzM2Drw==';
   static final aboutFreelance = 'https://en.wikipedia.org/wiki/Freelancer';
-  static final aboutSoftDev =
-      'https://en.wikipedia.org/wiki/Software_development';
 
   static final infos = {
     'NAME': ['Makesh Vineeth', Icons.person, linkedIn],
