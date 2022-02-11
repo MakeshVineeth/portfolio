@@ -8,12 +8,11 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 class ScaffoldHome extends StatelessWidget {
   static final mail = 'mailto:makeshvineeth9@gmail.com';
   static final tnLoc = 'https://goo.gl/maps/ofDShJhYNYTLYwKt8';
-  static final kluAddress = 'https://goo.gl/maps/wEzAiUt8qdotkRKE7';
-  static final kluWeb = 'https://www.kluniversity.in';
+  static final topAddress = 'https://goo.gl/maps/w88i6goJzJnfaavb6';
+  static final topWeb = 'https://www.amity.edu/';
   static final linkedIn = 'https://www.linkedin.com/in/makeshvineeth/';
-  static final bcaInfo =
+  static final degInfo =
       'https://en.wikipedia.org/wiki/Bachelor_of_Computer_Application';
-  static final cloudInfo = 'https://www.kluniversity.in/bca/default.aspx';
   static final aboutFreelance = 'https://en.wikipedia.org/wiki/Freelancer';
   static final aboutSoftDev =
       'https://en.wikipedia.org/wiki/Software_development';
@@ -34,26 +33,12 @@ class ScaffoldHome extends StatelessWidget {
 
   static final eduInfos = {
     'HIGHEST QUALIFICATION': [
-      'Bachelors in Computer Applications',
+      'Masters in Computer Applications',
       Icons.school_rounded,
-      bcaInfo
+      degInfo
     ],
-    'UNIVERSITY': [
-      'Koneru Lakshmaiah Education Foundation',
-      Icons.domain_rounded,
-      kluWeb
-    ],
-    'UNIVERSITY LOCATION': [
-      'Vijayawada, AP',
-      Icons.location_on_rounded,
-      kluAddress
-    ],
-    'SPECIALIZATION': [
-      'Cloud Technology & Information Security',
-      Icons.school_rounded,
-      cloudInfo
-    ],
-    'TOTAL CGPA': ['9.58', Icons.score_rounded],
+    'UNIVERSITY': ['Amity University', Icons.domain_rounded, topWeb],
+    'UNIVERSITY LOCATION': ['Noida, UP', Icons.location_on_rounded, topAddress],
   };
 
   final FixedValues fixedValues = FixedValues();
