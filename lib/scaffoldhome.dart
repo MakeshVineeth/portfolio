@@ -27,7 +27,6 @@ class ScaffoldHome extends StatelessWidget {
       Icons.work_rounded,
       aboutFreelance
     ],
-    'ROLE': ['Software Developer', Icons.domain_rounded, aboutSoftDev],
     'CURRENT POSITION': ['Student', Icons.assignment_ind_rounded],
   };
 
