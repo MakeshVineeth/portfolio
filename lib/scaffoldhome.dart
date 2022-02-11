@@ -12,7 +12,7 @@ class ScaffoldHome extends StatelessWidget {
   static final topWeb = 'https://www.amity.edu/';
   static final linkedIn = 'https://www.linkedin.com/in/makeshvineeth/';
   static final degInfo =
-      'https://en.wikipedia.org/wiki/Bachelor_of_Computer_Application';
+      'https://www.amity.edu/course-details.aspx?fd=FzNymoX3dH0=&cfn=rq3kzaCPdYSngjgUzM2Drw==&CD=rq3kzaCPdYSngjgUzM2Drw==';
   static final aboutFreelance = 'https://en.wikipedia.org/wiki/Freelancer';
   static final aboutSoftDev =
       'https://en.wikipedia.org/wiki/Software_development';
