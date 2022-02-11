@@ -1,8 +1,8 @@
 name: makesh_vineeth
-description: Portfolio.
+description: Portfolio
 
 publish_to: "none" 
-version: 1.0.0+1
+version: 2.0.0+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -13,9 +13,9 @@ dependencies:
   animated_text_kit: ^4.2.1
   flutter_fadein: ^2.0.0
   flutter_staggered_animations: ^1.0.0
-  octo_image: ^1.0.0+1
+  octo_image: ^1.0.1
   responsive_framework: ^0.1.5
-  url_launcher: ^6.0.13
+  url_launcher: ^6.0.20
 
 dev_dependencies:
   flutter_test:

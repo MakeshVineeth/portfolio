@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:makesh_vineeth/details.dart';
 import 'package:makesh_vineeth/fixedValues.dart';
 import 'package:flutter_fadein/flutter_fadein.dart';
@@ -23,14 +22,14 @@ class ScaffoldHome extends StatelessWidget {
     'NAME': ['Makesh Vineeth', Icons.person, linkedIn],
     'LOCATION': ['Telangana, India', Icons.person_pin_circle_rounded, tnLoc],
     'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded, mail],
-    'DEVELOPMENT': ['C# and Flutter', Icons.developer_mode_rounded],
+    'DEVELOPMENT': ['.NET and Flutter', Icons.developer_mode_rounded],
     'TYPE OF WORK': [
       'Freelancing & Full-Time',
       Icons.work_rounded,
       aboutFreelance
     ],
     'ROLE': ['Software Developer', Icons.domain_rounded, aboutSoftDev],
-    'CURRENT POSITION': ['Graduated, 2020', Icons.assignment_ind_rounded],
+    'CURRENT POSITION': ['Student', Icons.assignment_ind_rounded],
   };
 
   static final eduInfos = {
