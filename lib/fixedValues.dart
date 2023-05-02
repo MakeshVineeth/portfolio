@@ -6,10 +6,10 @@ class FixedValues {
 
   // Default Initializations to White Theme.
   Color appBarColor = Colors.white;
-  Color appBarFont = Colors.blue[900];
+  Color appBarFont = Colors.blue[900]!;
 
   ThemeData getDarkTheme(BuildContext context) {
-    appBarColor = Colors.grey[850];
+    appBarColor = Colors.grey[850]!;
     appBarFont = Colors.amberAccent;
 
     return getThemeData(Brightness.dark, context);
@@ -24,7 +24,7 @@ class FixedValues {
         primaryColor: appBarColor,
         cardColor: appBarColor,
         textTheme: TextTheme(
-          bodyText2: Theme.of(context).textTheme.bodyText2.copyWith(
+          bodyMedium: Theme.of(context).textTheme.bodyMedium!.copyWith(
             fontFeatures: const [FontFeature.proportionalFigures()],
             color: Colors.white,
           ),

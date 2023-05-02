@@ -13,7 +13,6 @@ class ScaffoldHome extends StatelessWidget {
   static final linkedIn = 'https://www.linkedin.com/in/makeshvineeth/';
   static final degInfo =
       'https://www.amity.edu/course-details.aspx?fd=FzNymoX3dH0=&cfn=rq3kzaCPdYSngjgUzM2Drw==&CD=rq3kzaCPdYSngjgUzM2Drw==';
-  static final aboutFreelance = 'https://en.wikipedia.org/wiki/Freelancer';
 
   static final infos = {
     'NAME': ['Makesh Vineeth', Icons.person, linkedIn],
@@ -21,11 +20,10 @@ class ScaffoldHome extends StatelessWidget {
     'EMAIL': ['makeshvineeth9@gmail.com', Icons.mail_rounded, mail],
     'DEVELOPMENT': ['.NET and Flutter', Icons.developer_mode_rounded],
     'TYPE OF WORK': [
-      'Freelancing & Full-Time',
+      'Full-Time',
       Icons.work_rounded,
-      aboutFreelance
     ],
-    'CURRENT POSITION': ['Student', Icons.assignment_ind_rounded],
+    'CURRENT POSITION': ['Student Intern at Saxo Group India', Icons.assignment_ind_rounded],
   };
 
   static final eduInfos = {
@@ -63,7 +61,7 @@ class ScaffoldHome extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Scrollbar(
-                  isAlwaysShown: true,
+                  thumbVisibility: true,
                   controller: _scrollController,
                   child: ListView.builder(
                     cacheExtent: 2000,

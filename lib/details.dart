@@ -10,11 +10,14 @@ class Detail extends StatefulWidget {
   final url;
 
   const Detail(
-      {@required this.title, @required this.desc, this.icon, this.url, Key key})
+      {@required this.title, @required this.desc, this.icon, this.url, Key? key})
       : super(key: key);
 
   static _launchURL(String url) async {
-    if (await canLaunch(url)) await launch(url);
+    try {
+      Uri uri = Uri.parse(url);
+      await launchUrl(uri);
+    } catch (e) {}
   }
 
   @override
@@ -28,7 +31,7 @@ class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    
+
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
