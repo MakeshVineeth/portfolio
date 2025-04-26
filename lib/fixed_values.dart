@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class FixedValues {
@@ -52,15 +51,14 @@ class FixedValues {
   }
 
   TextStyle headingStyle(BuildContext context) => TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).brightness == Brightness.light
+    fontSize: 18.0,
+    fontWeight: FontWeight.bold,
+    color:
+        Theme.of(context).brightness == Brightness.light
             ? appBarFont
             : Colors.amberAccent,
-      );
+  );
 
-  TextStyle textStyle(BuildContext context) => TextStyle(
-        fontSize: 15.0,
-        fontWeight: FontWeight.w600,
-      );
+  TextStyle textStyle(BuildContext context) =>
+      TextStyle(fontSize: 15.0, fontWeight: FontWeight.w600);
 }

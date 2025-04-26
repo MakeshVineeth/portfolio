@@ -3,8 +3,8 @@ import 'package:octo_image/octo_image.dart';
 
 class CircleImage extends StatelessWidget {
   const CircleImage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

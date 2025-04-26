@@ -1,30 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:makesh_vineeth/fixedValues.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:makesh_vineeth/fixed_values.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Detail extends StatefulWidget {
-  final title;
-  final desc;
-  final icon;
-  final url;
+  final String title;
+  final String desc;
+  final IconData? icon;
+  final String? url;
 
-  const Detail(
-      {@required this.title, @required this.desc, this.icon, this.url, Key? key})
-      : super(key: key);
+  const Detail({
+    required this.title,
+    required this.desc,
+    this.icon,
+    this.url,
+    super.key,
+  });
 
   static _launchURL(String url) async {
     try {
       Uri uri = Uri.parse(url);
       await launchUrl(uri);
-    } catch (e) {}
+    } catch (_) {}
   }
 
   @override
-  _DetailState createState() => _DetailState();
+  DetailState createState() => DetailState();
 }
 
-class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
+class DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
   final FixedValues fixedValues = FixedValues();
   final BorderRadius borderRadius = BorderRadius.circular(20);
 
@@ -33,14 +36,14 @@ class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
     super.build(context);
 
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: borderRadius,
-      ),
+      shape: RoundedRectangleBorder(borderRadius: borderRadius),
       margin: EdgeInsets.all(5.0),
       elevation: 2.0,
       child: InkWell(
         onTap: () {
-          if (this.widget.url != null) Detail._launchURL(this.widget.url);
+          if (widget.url != null) {
+            Detail._launchURL(widget.url!);
+          }
         },
         borderRadius: borderRadius,
         child: IgnorePointer(
@@ -58,33 +61,27 @@ class _DetailState extends State<Detail> with AutomaticKeepAliveClientMixin {
                     style: fixedValues.headingStyle(context),
                   ),
                 ),
-                SizedBox(
-                  height: 5.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    if (this.widget.icon != null)
-                      Icon(
-                        this.widget.icon,
-                        size: 18.0,
-                      ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    AnimatedTextKit(
-                      animatedTexts: [
-                        TyperAnimatedText(
+                SizedBox(height: 5.0),
+                Center(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (widget.icon != null) Icon(widget.icon, size: 18.0),
+                        SizedBox(width: 5.0),
+                        Text(
                           widget.desc,
-                          textStyle: fixedValues.textStyle(context),
+                          style: fixedValues.textStyle(context),
                           textAlign: TextAlign.center,
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
                         ),
                       ],
-                      displayFullTextOnTap: true,
-                      isRepeatingAnimation: false,
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
